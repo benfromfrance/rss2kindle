@@ -1,0 +1,35 @@
+version: '3.8'
+
+services:
+  rss2kindle:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rss2kindle
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
+    environment:
+      - R2K_ADDR=:8080
+      - R2K_DATA_DIR=/data
+      - R2K_ADMIN_PASSWORD=admin # À changer en production !
+      # Optionnel: clé secrète de 64 caractères hexadécimaux
+      # - R2K_SECRET=
+    volumes:
+      - rss2kindle_data:/data
+    depends_on:
+      - mailpit
+
+  # Serveur de capture email pour le développement et les tests locaux
+  mailpit:
+    image: axllent/mailpit:latest
+    container_name: rss2kindle_mailpit
+    restart: unless-stopped
+    ports:
+      - "8025:8025" # Interface Web pour consulter les emails et pièces jointes
+      - "1025:1025" # Port SMTP (sans authentification ni TLS pour les tests)
+    environment:
+      MP_MAX_MESSAGES: 100
+
+volumes:
+  rss2kindle_data:

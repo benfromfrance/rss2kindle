@@ -1,0 +1,41 @@
+# Données d'application et base SQLite
+data/
+*.db
+*.db-*
+*.db-wal
+*.db-shm
+.secret
+
+# Binaires et compilation Go
+backend/rss2kindle
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+vendor/
+
+# Frontend Node / Vite
+frontend/node_modules/
+node_modules/
+frontend/dist/
+dist/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environnement et secrets
+.env
+.env.*
+!.env.example
+
+# Système et IDE
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
