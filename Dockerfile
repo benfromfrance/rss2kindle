@@ -9,7 +9,7 @@ COPY frontend/ ./
 RUN mkdir -p ../backend/web/dist && npm run build
 
 # Étape 2 : Compilation du binaire Go avec frontend embarqué
-FROM golang:1.23-alpine AS backend-builder
+FROM golang:alpine AS backend-builder
 WORKDIR /app/backend
 
 # Dépendances et certificats CA
