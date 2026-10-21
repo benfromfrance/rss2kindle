@@ -6,7 +6,7 @@ COPY frontend/package*.json ./
 RUN npm install
 
 COPY frontend/ ./
-RUN npm run build
+RUN mkdir -p ../backend/web/dist && npm run build
 
 # Étape 2 : Compilation du binaire Go avec frontend embarqué
 FROM golang:1.24-alpine AS backend-builder
