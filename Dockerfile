@@ -20,7 +20,7 @@ RUN go mod download
 
 COPY backend/ ./
 # Copie des fichiers compilés du frontend dans le dossier embed
-COPY --from=frontend-builder /app/backend/web/dist ./web/dist
+COPY --from=frontend-builder /app/backend/web/dist/ ./web/dist/
 
 RUN CGO_ENABLED=0 GOOS=linux go build -ldflags="-s -w" -o /app/rss2kindle ./cmd/rss2kindle
 

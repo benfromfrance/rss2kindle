@@ -1,0 +1,8 @@
+.git
+.github
+data/
+*.db*
+.secret
+node_modules/
+frontend/node_modules/
+backend/rss2kindle
