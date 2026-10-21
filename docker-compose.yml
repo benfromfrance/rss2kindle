@@ -2,6 +2,7 @@ version: '3.8'
 
 services:
   rss2kindle:
+    image: ghcr.io/benfromfrance/rss2kindle:latest
     build:
       context: .
       dockerfile: Dockerfile
