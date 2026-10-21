@@ -1,6 +1,6 @@
 module github.com/benoit/rss2kindle
 
-go 1.26.0
+go 1.23
 
 require (
 	github.com/PuerkitoBio/goquery v1.13.0 // indirect
